@@ -1,0 +1,142 @@
+C51 COMPILER V9.01   MAIN                                                                  03/15/2019 16:47:31 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+*** WARNING C500 IN LINE 1 OF MAIN.C: LICENSE ERROR (R208: RENEW LICENSE ID CODE (LIC))
+
+   1          #include "reg52.h"
+   2          
+   3          //宏定义
+   4          #define uchar unsigned char
+   5          #define uint  unsigned int
+   6          
+   7          //按键定义
+   8          sbit KEY1= P2^0;
+   9          sbit KEY2= P2^1;
+  10          sbit KEY3= P2^2;
+  11          
+  12          //雨滴传感器定义
+  13          sbit YD= P2^3;
+  14          
+  15          //数码管定义
+  16          sbit LED1= P0^0;
+  17          sbit LED2= P0^3;
+  18          
+  19          //继电器定义
+  20          sbit JDQ1= P0^1;
+  21          sbit JDQ2= P0^2;
+  22          
+  23          //延时函数
+  24          void delay_ms(uint z)                     
+  25          {
+  26   1        uint a,b;
+  27   1        for(a=z;a>0;a--)
+  28   1         for(b=100;b>0;b--);
+  29   1      }
+  30          
+  31          
+  32           //主函数
+  33          void main(void)
+  34          {
+  35   1              uchar flag=0;
+  36   1              LED1=1;
+  37   1              LED2=0;
+  38   1              while(1)
+  39   1              {
+  40   2                      //切换模式
+  41   2                      if(KEY1==0)
+  42   2                      {
+  43   3                              delay_ms(20);
+  44   3                              if(KEY1==0)
+  45   3                              {
+  46   4                                      flag=!flag;
+  47   4                              }       
+  48   3                              while(!KEY1);
+  49   3                      }
+  50   2                      //自动模式
+  51   2                      if(flag==0)
+  52   2                      {
+  53   3                              //自动、手动指示灯
+  54   3                              LED1=1;
+C51 COMPILER V9.01   MAIN                                                                  03/15/2019 16:47:31 PAGE 2   
+
+  55   3                              LED2=0;
+  56   3                              if(YD==0)
+  57   3                              {
+  58   4                                      JDQ1=0;
+  59   4                                      JDQ2=1; 
+  60   4                                      delay_ms(1000);
+  61   4                                      JDQ1=1;
+  62   4                                      JDQ2=0; 
+  63   4                                      delay_ms(1000);
+  64   4                              }
+  65   3                              else
+  66   3                              {
+  67   4                                      JDQ1=1;
+  68   4                                      JDQ2=1;                 
+  69   4                              }
+  70   3                      }
+  71   2                      //手动模式
+  72   2                      else if(flag==1)
+  73   2                      {
+  74   3                              //自动、手动指示灯
+  75   3                              LED1=0;
+  76   3                              LED2=1;
+  77   3                              //一档
+  78   3                              if(KEY2==0&&KEY3==1)
+  79   3                              {
+  80   4                                      JDQ1=0;
+  81   4                                      JDQ2=1; 
+  82   4                                      delay_ms(1000);
+  83   4                                      JDQ1=1;
+  84   4                                      JDQ2=0; 
+  85   4                                      delay_ms(1000);
+  86   4                                      JDQ1=1;
+  87   4                                      JDQ2=1;
+  88   4                                      delay_ms(1000);
+  89   4                              }
+  90   3                              //二档
+  91   3                              if(KEY2==0&&KEY3==0)
+  92   3                              {
+  93   4                                      JDQ1=0;
+  94   4                                      JDQ2=1; 
+  95   4                                      delay_ms(1000);
+  96   4                                      JDQ1=1;
+  97   4                                      JDQ2=0; 
+  98   4                                      delay_ms(1000);                 
+  99   4                              }
+ 100   3                              //手动关闭模块
+ 101   3                              if (KEY2==1&&KEY3==1)
+ 102   3                              {
+ 103   4                                      JDQ1=1;
+ 104   4                                      JDQ2=1;
+ 105   4                              }
+ 106   3                              if (KEY2==1&&KEY3==0)
+ 107   3                              {
+ 108   4                                      JDQ1=1;
+ 109   4                                      JDQ2=1;
+ 110   4                              }
+ 111   3                      }
+ 112   2              }
+ 113   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+C51 COMPILER V9.01   MAIN                                                                  03/15/2019 16:47:31 PAGE 3   
+
+   CODE SIZE        =    158    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

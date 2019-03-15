@@ -1,0 +1,220 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/15/2019  16:47:08  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL\C51\BIN\BL51.EXE STARTUP.obj, main.obj TO jiaxin
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  main.obj (MAIN)
+
+
+LINK MAP OF MODULE:  jiaxin (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     006DH     UNIT         ?PR?MAIN?MAIN
+            CODE    086DH     0031H     UNIT         ?PR?_DELAY_MS?MAIN
+            CODE    089EH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   jiaxin (?C_STARTUP)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+  +--> ?PR?_DELAY_MS?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  jiaxin (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:089EH         SEGMENT       ?C_C51STARTUP
+  I:0008H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/15/2019  16:47:08  PAGE 2
+
+
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:08A1H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:089EH         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:089EH         LINE#         133
+  C:08A0H         LINE#         134
+  C:08A1H         LINE#         135
+  C:08A2H         LINE#         136
+  C:08A4H         LINE#         185
+  C:08A7H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:0080H.0       PUBLIC        LED1
+  B:0080H.3       PUBLIC        LED2
+  D:00A8H         PUBLIC        IE
+  B:0080H.1       PUBLIC        JDQ1
+  B:0080H.2       PUBLIC        JDQ2
+  D:00B8H         PUBLIC        IP
+  B:00A0H.0       PUBLIC        KEY1
+  B:00A0H.1       PUBLIC        KEY2
+  B:00A0H.3       PUBLIC        YD
+  B:00A0H.2       PUBLIC        KEY3
+  C:0800H         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:0880H         PUBLIC        _delay_ms
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  C:086DH         SYMBOL        L?0029
+  C:087CH         SYMBOL        L?0030
+  -------         PROC          L?0028
+  -------         ENDPROC       L?0028
+  C:086DH         SYMBOL        L?0029
+  C:087CH         SYMBOL        L?0030
+  -------         PROC          _DELAY_MS
+  D:0006H         SYMBOL        z
+  -------         DO            
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/15/2019  16:47:08  PAGE 3
+
+
+  D:0006H         SYMBOL        a
+  D:0004H         SYMBOL        b
+  -------         ENDDO         
+  C:0880H         LINE#         24
+  C:0880H         LINE#         25
+  C:0880H         LINE#         27
+  C:0889H         LINE#         28
+  C:089DH         LINE#         29
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          MAIN
+  -------         DO            
+  D:0003H         SYMBOL        flag
+  -------         ENDDO         
+  C:0800H         LINE#         33
+  C:0800H         LINE#         34
+  C:0800H         LINE#         35
+  C:0802H         LINE#         36
+  C:0804H         LINE#         37
+  C:0806H         LINE#         38
+  C:0806H         LINE#         39
+  C:0806H         LINE#         41
+  C:0809H         LINE#         42
+  C:0809H         LINE#         43
+  C:0810H         LINE#         44
+  C:0813H         LINE#         45
+  C:0813H         LINE#         46
+  C:081EH         LINE#         47
+  C:081EH         LINE#         48
+  C:0821H         LINE#         49
+  C:0821H         LINE#         51
+  C:0824H         LINE#         52
+  C:0824H         LINE#         54
+  C:0826H         LINE#         55
+  C:0828H         LINE#         56
+  C:082BH         LINE#         57
+  C:082BH         LINE#         58
+  C:082BH         LINE#         59
+  C:082BH         LINE#         60
+  C:082BH         LINE#         61
+  C:082BH         LINE#         62
+  C:082BH         LINE#         63
+  C:082EH         LINE#         64
+  C:0830H         LINE#         66
+  C:0830H         LINE#         67
+  C:0832H         LINE#         68
+  C:0834H         LINE#         69
+  C:0834H         LINE#         70
+  C:0836H         LINE#         72
+  C:0839H         LINE#         73
+  C:0839H         LINE#         75
+  C:083BH         LINE#         76
+  C:083DH         LINE#         78
+  C:0843H         LINE#         79
+  C:0843H         LINE#         80
+  C:0843H         LINE#         81
+  C:0843H         LINE#         82
+  C:0843H         LINE#         83
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/15/2019  16:47:08  PAGE 4
+
+
+  C:0843H         LINE#         84
+  C:0843H         LINE#         85
+  C:0846H         LINE#         86
+  C:0848H         LINE#         87
+  C:084AH         LINE#         88
+  C:084DH         LINE#         89
+  C:084DH         LINE#         91
+  C:0853H         LINE#         92
+  C:0853H         LINE#         93
+  C:0853H         LINE#         94
+  C:0853H         LINE#         95
+  C:0853H         LINE#         96
+  C:0853H         LINE#         97
+  C:0853H         LINE#         98
+  C:0856H         LINE#         99
+  C:0856H         LINE#         101
+  C:085CH         LINE#         102
+  C:085CH         LINE#         103
+  C:085EH         LINE#         104
+  C:0860H         LINE#         105
+  C:0860H         LINE#         106
+  C:0866H         LINE#         107
+  C:0866H         LINE#         108
+  C:0868H         LINE#         109
+  C:086AH         LINE#         110
+  C:086AH         LINE#         111
+  C:086AH         LINE#         112
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00ADH BYTE ( 8%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=173
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
